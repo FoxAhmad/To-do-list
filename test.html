@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <title>TO-DO list</title>
+   
+</head>
+
+<body>
+    <div id="app">
+        <h2>Add a new task:</h2>
+  <form @submit.prevent="addtask">
+    <input type="text" v-model="nt" placeholder="new task name" />
+    <button type="submit">Add Task</button>
+  </form>
+       <h2>UnCompleted Tasks: </h2>
+          <ul>
+            <li v-for="task in uncompletedTask" :key="task.id">
+              <label>
+                {{task.name}}
+                <input type="checkbox" v-model="task.done">
+              </label>
+            </li>
+          </ul>
+            <h2>Completed Tasks: </h2>
+            <ul>
+              <li v-for="task in completedTask" :key="task.id">
+                <label>
+                  {{task.name}}
+                  <input type="checkbox" v-model="task.done">
+                </label>
+              </li>
+            </ul>
+            
+    </div>
+    <script src="jav.js"></script>
+</body>
